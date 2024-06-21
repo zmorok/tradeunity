@@ -1,15 +1,15 @@
-# v1.0.0 TradeUnity
+# v1.1.0 TradeUnity
 
-Переработанный сайт TradeUnity с использованием **ReactJS**, **Redux Toolkit** и других фреймворков.
+Переработанный сайт **TradeUnity** с использованием [`ReactJS`](https://react.dev/), [`Redux Toolkit`](https://redux-toolkit.js.org/) и других фреймворков.
 
 На данный момент:
 
-- Основа приложения (App.jsx с Header, Catalog, Footer)
+- Основа приложения (`App.jsx` с `Header.jsx`, `Catalog.jsx`, `Footer.jsx`)
 - Базовые стили для компонентов
+- Компонент Page с товарами (`items.json`) и базовый стиль
 
 В будущем:
 
-- Компонент Page для секций каталогов
-  - Переделать данные товаров в JSON
+- Добавить модальные окна к каждому из товаров с описанием
 - Логика компонентов
-- Дополнительные компоненты (Account.jsx, Basket.jsx, Help.jsx и другие...)
+- Дополнительные компоненты (`Account.jsx`, `Basket.jsx`, `Help.jsx` и другие...)

@@ -11,9 +11,9 @@ function Catalog() {
 			<>
 				<h1>Каталог</h1>
 			</>
-			<main>
+			<main className={styles.main_sections}>
 				{sections.map(section => (
-					<div className={styles.className} key={section.className}>
+					<div className={styles.div_section} key={section.className}>
 						<img src={section.src} alt={section.alt} />
 						<Link to={'/' + section.className}>{section.label}</Link>
 					</div>

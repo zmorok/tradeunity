@@ -17,9 +17,16 @@ const Footer = () => {
 				<div className={styles.footer_section}>
 					<h3>Контакты</h3>
 					<ul>
-						<li>Телефон: +375-XX-XXX-XX-XX</li>
+						<li>
+							Телефон: <a href='tel:+375297903245'>+375-29-790-32-45</a>
+						</li>
 						<li>Email: example@email.com</li>
-						<li>Адрес: ул. Примерная, д. 123, г. Примерный, Беларусь</li>
+						<li>
+							Адрес:{' '}
+							<a href='https://maps.app.goo.gl/tE8mBtEhneqT9c4g6'>
+								ул. Примерная, д. 123, г. Примерный, Беларусь
+							</a>
+						</li>
 					</ul>
 				</div>
 				<div className={styles.footer_section}>
