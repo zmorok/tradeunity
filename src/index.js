@@ -2,13 +2,14 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { Provider } from 'react-redux'
 
-import store from './redux/store'
-import { setGoods } from './redux/goodsSlice'
+import store from './components/redux/store'
+import { setGoods } from './components/redux/goodsSlice'
 
+import 'normalize.css'
 import App from './App'
 
-// получение товаров с items.json и заношение их в store
-await fetch('/items.json')
+// получение товаров с items.json и добавление их в store
+await fetch('/tradeunity/items.json')
 	.then(response => response.json())
 	.then(data => {
 		store.dispatch(setGoods(data))

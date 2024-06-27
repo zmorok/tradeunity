@@ -1,4 +1,5 @@
-@import url("./assets/fonts/fonts.css");
+@import-normalize;
+@import url("./components/assets/fonts/fonts.css");
 
 * {
   margin: 0;

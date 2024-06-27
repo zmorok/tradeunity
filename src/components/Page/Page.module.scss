@@ -1,0 +1,257 @@
+// Page.module.scss
+
+.main_current {
+  display: grid;
+  height: auto;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-gap: 50px 50px;
+  padding: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+
+  & .div_item {
+    background: #e7e7e7;
+    padding: 10px 0;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    align-items: center;
+    border: 2px solid black;
+    width: 100%;
+    height: 100%;
+    font-family: 'Source Sans 3';
+    transform: scale(1);
+    transition: all 0.3s;
+    overflow: hidden;
+    opacity: 0;
+
+    &.div_show {
+      opacity: 1;
+      transition: opacity 1s ease-in-out;
+    }
+
+    &:hover {
+      transform: scale(1.02);
+      border-radius: 10px;
+      transition: 0.3s;
+    }
+
+    & img {
+      user-select: none;
+      max-width: 100%;
+      height: auto;
+      filter: drop-shadow(2px 2px 7px black);
+    }
+
+    & h2 {
+      text-align: center;
+      font-size: 1.2em;
+      justify-self: center;
+    }
+
+    & p {
+      text-align: center;
+      font-size: 1em;
+      justify-self: center;
+    }
+
+    & .btn_buy {
+      width: 65%;
+      height: 50px;
+      border-radius: 25px;
+      border: none;
+      outline: none;
+      color: black;
+      background-color: transparent;
+      font-size: 20px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s;
+
+      &:hover {
+        background-color: rgb(0, 0, 0);
+        color: white;
+        transition: 0.4s;
+      }
+    }
+  }
+}
+
+.inactive {
+  height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  & p {
+    text-align: center;
+    font-size: 1.8rem;
+    font-family: 'Montserrat';
+  }
+}
+
+@media screen and (max-width: 840px) {
+  .main {
+    grid-template-columns: repeat(auto-fill, minmax(100%, 1fr));
+  }
+}
+
+//----------------------------------------------------------------------------------------------------------------------------------
+
+.modal {
+  display: none;
+  position: fixed;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+
+  &.show {
+    animation: FadeIn 0.3s ease;
+  }
+
+  &.hide {
+    animation: FadeOut 0.3s ease;
+  }
+
+  .modal_content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    background-color: #fefefe;
+    padding: 20px;
+    border: 1px solid #888;
+    border-radius: 20px 5px 5px 20px;
+    width: 55%;
+    height: 80%;
+    margin-right: calc(-1.5 * (100vw - 100%));
+    position: relative;
+    overflow: auto;
+    scrollbar-width: 0;
+    opacity: 0;
+    animation: FadeIn 0.3s ease forwards;
+    font-family: 'Source Sans 3';
+
+    .close_btn {
+      position: absolute;
+      top: 15px;
+      align-self: flex-end;
+      transform: scale(1.5);
+      color: black;
+      transition: color 0.3s;
+
+      &:hover {
+        cursor: pointer;
+        color: red;
+        transition: color 0.3s;
+      }
+    }
+
+    img {
+      width: 30%;
+      max-height: 80%;
+      display: block;
+      filter: drop-shadow(2px 2px 7px black);
+    }
+
+    h2,
+    .product_price {
+      font-size: 2.6vw;
+    }
+
+    .product_desc {
+      text-align: center;
+    }
+
+    .confirm_btn {
+      width: 65%;
+      height: 50px;
+      border-radius: 25px;
+      border: none;
+      outline: none;
+      color: black;
+      background-color: transparent;
+      font-size: 20px;
+      font-weight: bold;
+      padding: 10px 0;
+      cursor: pointer;
+      transition: all 0.3s;
+
+      &:hover {
+        background-color: rgb(0, 0, 0);
+        color: white;
+        transition: 0.4s;
+      }
+    }
+  }
+}
+
+.scroll_lock {
+  overflow: hidden;
+}
+
+@keyframes FadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes FadeOut {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .modal {
+    .modal_content {
+
+      h2,
+      .product_price {
+        font-size: 5vw;
+      }
+
+      img {
+        width: 80%;
+        height: auto;
+      }
+
+      #confirm_btn {
+        font-size: 2.5vw;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .modal {
+    .modal_content {
+      width: 85%;
+      height: 60%;
+
+      h2,
+      .product_price {
+        font-size: 7vw;
+      }
+
+      img {
+        width: 90%;
+        height: auto;
+      }
+    }
+  }
+}
