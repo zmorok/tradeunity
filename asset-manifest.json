@@ -1,0 +1,40 @@
+{
+  "files": {
+    "main.css": "/tradeunity/static/css/main.ffb1a8d1.css",
+    "main.js": "/tradeunity/static/js/main.c58c1a4e.js",
+    "static/media/SourceSans3-VariableFont_wght.ttf": "/tradeunity/static/media/SourceSans3-VariableFont_wght.f0bd6d1942b9ef5e8026.ttf",
+    "static/media/Montserrat-VariableFont_wght.ttf": "/tradeunity/static/media/Montserrat-VariableFont_wght.7e687123cd4528224ce5.ttf",
+    "static/media/Nunito-VariableFont_wght.ttf": "/tradeunity/static/media/Nunito-VariableFont_wght.c0f0807a40aebdc41b40.ttf",
+    "static/media/products.jpg": "/tradeunity/static/media/products.79a5808fa755d4eea70b.jpg",
+    "static/media/books.jpg": "/tradeunity/static/media/books.2c690cce62624dffee74.jpg",
+    "static/media/electronics.jpg": "/tradeunity/static/media/electronics.a06058f7b103491c8f4b.jpg",
+    "static/media/furniture.jpg": "/tradeunity/static/media/furniture.f5177c34905357eaf951.jpg",
+    "static/media/sport.jpg": "/tradeunity/static/media/sport.2cc223686dc8b6959957.jpg",
+    "static/media/stationery.jpg": "/tradeunity/static/media/stationery.6f50b6772aad9cc10dba.jpg",
+    "static/media/pet_supplies.jpg": "/tradeunity/static/media/pet_supplies.641f29706eb5178b3a75.jpg",
+    "static/media/jewelry.jpg": "/tradeunity/static/media/jewelry.8796c003ac2cbd0a6559.jpg",
+    "static/media/shoes.jpg": "/tradeunity/static/media/shoes.69cf4666134e00cc0ef1.jpg",
+    "static/media/logo.svg": "/tradeunity/static/media/logo.47d54cb84146b08575cdb38a03621d33.svg",
+    "static/media/github.svg": "/tradeunity/static/media/github.0b494e85d9e04dc12ddc73937ea54f4b.svg",
+    "static/media/facebook.svg": "/tradeunity/static/media/facebook.6bbfd4897759e4ea8e9dbced3f4bb420.svg",
+    "static/media/vk.svg": "/tradeunity/static/media/vk.b7c781b77745be22a7d3f6d1765719d6.svg",
+    "static/media/account.svg": "/tradeunity/static/media/account.f5108c139be81ae2394a6af4f5b48e79.svg",
+    "static/media/youtube.svg": "/tradeunity/static/media/youtube.331dbc417d61bdd12b672af43df6c076.svg",
+    "static/media/cart-shopping.svg": "/tradeunity/static/media/cart-shopping.b349bf76056a2c66dd5433bcff107ba1.svg",
+    "static/media/visibility_off.svg": "/tradeunity/static/media/visibility_off.96cbf2e9b8875994916c5be47ca1fca3.svg",
+    "static/media/visibility.svg": "/tradeunity/static/media/visibility.42c39c35d334343ea8ad71d9b7f4ed79.svg",
+    "index.html": "/tradeunity/index.html",
+    "static/media/lock-open-outline.svg": "/tradeunity/static/media/lock-open-outline.850fd5deebdd57229fc6e95db41fb131.svg",
+    "static/media/lock-closed-outline.svg": "/tradeunity/static/media/lock-closed-outline.c73fb7752dd0be760479b816546b5c12.svg",
+    "static/media/mail-outline.svg": "/tradeunity/static/media/mail-outline.fd6671f240d786cbee5ff1c443c504ac.svg",
+    "static/media/search.svg": "/tradeunity/static/media/search.7f9de60d1c78e57eedd0527feb7a7791.svg",
+    "static/media/close.svg": "/tradeunity/static/media/close.f71f1a0f59916fc28cf49c3389b97c96.svg",
+    "static/media/burger_menu.svg": "/tradeunity/static/media/burger_menu.73e61fed0b339715c4ef21c5516b8104.svg",
+    "main.ffb1a8d1.css.map": "/tradeunity/static/css/main.ffb1a8d1.css.map",
+    "main.c58c1a4e.js.map": "/tradeunity/static/js/main.c58c1a4e.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ffb1a8d1.css",
+    "static/js/main.c58c1a4e.js"
+  ]
+}
