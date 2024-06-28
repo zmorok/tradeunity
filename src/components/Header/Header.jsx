@@ -141,9 +141,8 @@ const Header = ({ items, addItemToCart }) => {
 	// автозакрытие результатов поиска при смене страницы
 	const location = useLocation()
 	useEffect(() => {
-		return () => {
-			setSearchStr('') // Очистка значения в поле поиска
-		}
+		setSearchStr('')
+		setShowSearch(false)
 	}, [location.pathname])
 
 	// хук useEffect для отслеживания ширины экрана
@@ -178,6 +177,7 @@ const Header = ({ items, addItemToCart }) => {
 			<div className={styles.search}>
 				<input
 					placeholder='Search'
+					value={searcStr}
 					onChange={e => setSearchStr(e.target.value)}
 				/>
 				<button className={styles.serach_button}>
