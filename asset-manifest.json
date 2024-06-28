@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/tradeunity/static/css/main.ffb1a8d1.css",
-    "main.js": "/tradeunity/static/js/main.c58c1a4e.js",
+    "main.css": "/tradeunity/static/css/main.6b6347d3.css",
+    "main.js": "/tradeunity/static/js/main.9f7e171b.js",
     "static/media/SourceSans3-VariableFont_wght.ttf": "/tradeunity/static/media/SourceSans3-VariableFont_wght.f0bd6d1942b9ef5e8026.ttf",
     "static/media/Montserrat-VariableFont_wght.ttf": "/tradeunity/static/media/Montserrat-VariableFont_wght.7e687123cd4528224ce5.ttf",
     "static/media/Nunito-VariableFont_wght.ttf": "/tradeunity/static/media/Nunito-VariableFont_wght.c0f0807a40aebdc41b40.ttf",
@@ -30,11 +30,11 @@
     "static/media/search.svg": "/tradeunity/static/media/search.7f9de60d1c78e57eedd0527feb7a7791.svg",
     "static/media/close.svg": "/tradeunity/static/media/close.f71f1a0f59916fc28cf49c3389b97c96.svg",
     "static/media/burger_menu.svg": "/tradeunity/static/media/burger_menu.73e61fed0b339715c4ef21c5516b8104.svg",
-    "main.ffb1a8d1.css.map": "/tradeunity/static/css/main.ffb1a8d1.css.map",
-    "main.c58c1a4e.js.map": "/tradeunity/static/js/main.c58c1a4e.js.map"
+    "main.6b6347d3.css.map": "/tradeunity/static/css/main.6b6347d3.css.map",
+    "main.9f7e171b.js.map": "/tradeunity/static/js/main.9f7e171b.js.map"
   },
   "entrypoints": [
-    "static/css/main.ffb1a8d1.css",
-    "static/js/main.c58c1a4e.js"
+    "static/css/main.6b6347d3.css",
+    "static/js/main.9f7e171b.js"
   ]
 }
