@@ -1,6 +1,9 @@
+// Page.jsx
 import React, { useEffect, useRef, useState } from 'react'
+import { connect } from 'react-redux'
 import store from '../redux/store'
 import styles from './Page.module.scss'
+import { addItem } from '../redux/cartSlice'
 
 const ruTitles = {
 	books: 'Книги',
@@ -14,13 +17,11 @@ const ruTitles = {
 	stationery: 'Канцелярия',
 }
 
-const Page = ({ title }) => {
-	// получение русского заголовка, товаров и ссылку на фото по title
+const Page = ({ title, addItemToCart }) => {
 	const ruT = title && ruTitles[title]
 	const goods = store.getState().goods.items.items[title]
 	const url = store.getState().goods.urls.urls[title]
 
-	// реф для прокрутки к заголовку
 	const ref = useRef(null)
 	useEffect(() => {
 		if (ref.current) {
@@ -28,7 +29,6 @@ const Page = ({ title }) => {
 		}
 	}, [])
 
-	// observer для анимации появления товаров
 	useEffect(() => {
 		const handleIntersection = entries => {
 			entries.forEach(entry => {
@@ -54,25 +54,26 @@ const Page = ({ title }) => {
 		}
 	}, [])
 
-	// модальное окно с описанием выбранного товара
 	const [modalContent, setModalContent] = useState(null)
-	const handleModalOnClick = item => () => {
+	const handleModalOnClick = (item, index) => () => {
 		setModalContent(
 			<div className={styles.modal_content} onClick={e => e.stopPropagation()}>
 				<div className={styles.close_btn} onClick={handleCloseModal}>
 					&#10006;
 				</div>
-				<img src={`${url + item.img}`} alt={item.name} />
-				<h2>{item.name}</h2>
-				<p className='product_desc'>{item.description}</p>
-				<p className='product_price'>{item.price} руб.</p>
-				<button
-					id='confirm_btn'
-					className={styles.confirm_btn}
-					onClick={handleConfirmClick}
-				>
-					Заказать
-				</button>
+				<div key={index} className={styles.current_item}>
+					<img src={`${url + item.img}`} alt={item.name} />
+					<h2>{item.name}</h2>
+					<p className='product_desc'>{item.description}</p>
+					<p className='product_price'>{item.price} руб.</p>
+					<button
+						id='confirm_btn'
+						className={styles.confirm_btn}
+						onClick={() => handleConfirmClick(item)}
+					>
+						Заказать
+					</button>
+				</div>
 			</div>
 		)
 
@@ -88,7 +89,6 @@ const Page = ({ title }) => {
 		}, 50)
 	}
 
-	// закрытие модального окна
 	const handleCloseModal = () => {
 		const modal = document.getElementById('modal')
 		modal.classList.remove(styles.show)
@@ -102,9 +102,15 @@ const Page = ({ title }) => {
 		}, 280)
 	}
 
-	// функция для кнопки подтвердения (сделать..)
-	const handleConfirmClick = () => {
-		console.log('Order confirmed!')
+	const handleConfirmClick = item => {
+		const currentItem = {
+			name: item.name,
+			creator: item.creator,
+			price: item.price,
+			img: url + item.img,
+		}
+		addItemToCart(currentItem)
+		alert(`Товар "${item.name}" заказан!`)
 	}
 
 	return (
@@ -124,7 +130,7 @@ const Page = ({ title }) => {
 						<p>{item.price} руб.</p>
 						<button
 							className={styles.btn_buy}
-							onClick={handleModalOnClick(item)}
+							onClick={handleModalOnClick(item, index)}
 						>
 							Купить
 						</button>
@@ -135,4 +141,8 @@ const Page = ({ title }) => {
 	)
 }
 
-export default Page
+const mapDispatchToProps = dispatch => ({
+	addItemToCart: item => dispatch(addItem(item)),
+})
+
+export default connect(null, mapDispatchToProps)(Page)

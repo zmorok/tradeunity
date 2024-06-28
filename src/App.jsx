@@ -1,6 +1,7 @@
 import React from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 
+import StartPage from './components/StartPage/StartPage'
 import Header from './components/Header/Header'
 import Basket from './components/Basket/Basket'
 import Account from './components/Account/Account'
@@ -16,7 +17,8 @@ const App = () => {
 			<Router basename='/tradeunity'>
 				<Header />
 				<Routes>
-					<Route path='catalog' element={<Catalog />} />
+					<Route path='/' element={<StartPage />} />
+					<Route path='catalog/*' element={<Catalog />} />
 					<Route path='shoes' element={<Page title='shoes' />} />
 					<Route path='furniture' element={<Page title='furniture' />} />
 					<Route path='sport' element={<Page title='sport' />} />
