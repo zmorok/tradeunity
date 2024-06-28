@@ -11,6 +11,10 @@
 body {
   margin-right: calc(-1 * (100vw - 100%));
   overflow-x: hidden;
+  background-color: transparent;
+}
+
+#root {
   background-color: rgb(222, 184, 135);
 }
 
@@ -20,11 +24,16 @@ h1 {
 }
 
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 0;
+  height: 0;
 }
 
 ::-webkit-scrollbar-track {
-  background: transparent !important;
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-track-piece {
+  background-color: transparent;
 }
 
 ::-webkit-scrollbar-thumb {

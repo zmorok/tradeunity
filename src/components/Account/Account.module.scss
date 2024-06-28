@@ -10,7 +10,7 @@ body {
 
 .account_form {
   width: 100%;
-  height: 88vh;
+  height: 91vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -20,7 +20,7 @@ body {
 
 .form_box {
   width: 650px;
-  height: 550px;
+  height: 80%;
   background: rgba(24, 14, 1, 0.541);
   border: 2px solid rgba(255, 255, 255, 0.5);
   border-radius: 20px;
@@ -28,6 +28,10 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+
+  @media screen and (max-width: 840px) {
+    width: 90%;
+  }
 }
 
 .form_value {
@@ -220,11 +224,5 @@ form {
         text-decoration: underline;
       }
     }
-  }
-}
-
-@media screen and (max-width: 840px) {
-  .form_box {
-    width: 90%;
   }
 }
