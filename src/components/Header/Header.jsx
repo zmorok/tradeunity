@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { useLocation } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
@@ -85,9 +85,12 @@ const NavSidebar = () => {
 	)
 }
 
-const SearchResult = results => {
-	const { result, addItemToCart } = results
-
+const SearchResult = ({
+	result,
+	addItemToCart,
+	setSearchStr,
+	setShowSearch,
+}) => {
 	const products = result.result
 	const showSearch = result.showSearch
 
@@ -100,31 +103,34 @@ const SearchResult = results => {
 		}
 		addItemToCart(currentItem)
 		alert(`Товар "${item.name}" добавлен!`)
+
+		setShowSearch(false)
+		setSearchStr('')
 	}
 
 	return (
-		<div className={styles.search_result}>
-			{showSearch
-				? products.map((item, i) => (
-						<div key={i} className={styles.search_result_item}>
-							<img
-								className={styles.search_result_item_img}
-								src={item.img}
-								alt={item.name}
-							/>
-							<div className={styles.search_result_item_details}>
-								<p>{item.name}</p>
-								<p>"{item.creator}"</p>
-							</div>
-							<button
-								className={styles.search_result_item_button}
-								onClick={() => handleConfirmClick(item)}
-							>
-								Заказать
-							</button>
+		<div className={`${styles.search_result} ${showSearch ? styles.show : ''}`}>
+			{showSearch &&
+				products.map((item, i) => (
+					<div key={i} className={styles.search_result_item}>
+						<img
+							className={styles.search_result_item_img}
+							src={item.img}
+							alt={item.name}
+						/>
+						<div className={styles.search_result_item_details}>
+							<p>{item.name}</p>
+							<p>"{item.creator}"</p>
+							<p>[{item.price} руб.]</p>
 						</div>
-				  ))
-				: null}
+						<button
+							className={styles.search_result_item_button}
+							onClick={() => handleConfirmClick(item)}
+						>
+							Заказать
+						</button>
+					</div>
+				))}
 		</div>
 	)
 }
@@ -137,6 +143,8 @@ const Header = ({ items, addItemToCart }) => {
 	const [searcStr, setSearchStr] = useState('')
 	const [searchResult, setSearchResult] = useState([])
 	const [showSearch, setShowSearch] = useState(false)
+
+	const searchInputRef = useRef(null)
 
 	// автозакрытие результатов поиска при смене страницы
 	const location = useLocation()
@@ -158,16 +166,43 @@ const Header = ({ items, addItemToCart }) => {
 
 	// хук useEffect для обработки поиска
 	useEffect(() => {
-		if (searcStr.trim()) {
+		const trimmedSearch = searcStr.trim()
+
+		if (trimmedSearch) {
 			const results = items.filter(item =>
-				item.name.toLowerCase().includes(searcStr.toLowerCase())
+				item.name.toLowerCase().includes(trimmedSearch.toLowerCase())
 			)
 			setSearchResult(results)
 			setShowSearch(true)
 		} else {
 			setSearchResult([])
+			setShowSearch(false)
 		}
-	}, [searcStr])
+	}, [searcStr, items])
+
+	const handleBlur = () => {
+		if (
+			searchInputRef.current &&
+			searchInputRef.current.contains(document.activeElement)
+		) {
+			setShowSearch(false)
+		}
+	}
+
+	const handleFocus = () => {
+		if (searcStr.trim()) {
+			setShowSearch(true)
+		}
+	}
+
+	const handleScroll = () => {
+		setShowSearch(false)
+	}
+
+	useEffect(() => {
+		window.addEventListener('scroll', handleScroll)
+		return () => window.removeEventListener('scroll', handleScroll)
+	}, [])
 
 	return (
 		<header>
@@ -176,9 +211,12 @@ const Header = ({ items, addItemToCart }) => {
 			</Link>
 			<div className={styles.search}>
 				<input
-					placeholder='Search'
+					ref={searchInputRef}
+					placeholder='Поиск'
 					value={searcStr}
 					onChange={e => setSearchStr(e.target.value)}
+					onBlur={handleBlur}
+					onFocus={handleFocus}
 				/>
 				<button className={styles.serach_button}>
 					<Icon name='search' className='search.svg' alt='search.svg' />
@@ -187,6 +225,8 @@ const Header = ({ items, addItemToCart }) => {
 					<SearchResult
 						result={{ result: searchResult, showSearch: showSearch }}
 						addItemToCart={addItemToCart}
+						setSearchStr={setSearchStr}
+						setShowSearch={setShowSearch}
 					/>
 				)}
 			</div>

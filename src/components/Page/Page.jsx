@@ -71,7 +71,7 @@ const Page = ({ title, addItemToCart }) => {
 						className={styles.confirm_btn}
 						onClick={() => handleConfirmClick(item)}
 					>
-						Заказать
+						Добавить в корзину
 					</button>
 				</div>
 			</div>
@@ -110,7 +110,7 @@ const Page = ({ title, addItemToCart }) => {
 			img: url + item.img,
 		}
 		addItemToCart(currentItem)
-		alert(`Товар "${item.name}" заказан!`)
+		alert(`Товар "${item.name}" добавлен в корзину!`)
 	}
 
 	return (
